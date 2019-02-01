@@ -26,12 +26,13 @@
 \setbeamertemplate{bibliography item}{}
 \setbeamerfont{caption}{size=\footnotesize}
 \setbeamertemplate{frametitle continuation}{}
+\setcounter{tocdepth}{1}
 \renewcommand*{\bibfont}{\scriptsize}
 \addbibresource{bibliography.bib}
 
 \author{H2O.ai Machine Learning Interpretability Team}
 \title{Beyond Reason Codes}
-\subtitle{A Bluprint for Human-Centered, Low-Risk Machine Learning}
+\subtitle{A Bluprint for Human-Centered, Low-Risk AutoML}
 \logo{\includegraphics[height=8pt]{img/h2o_logo.png}}
 \institute{\href{https://www.h2o.ai}{H\textsubscript{2}O.ai}}
 \date{\today}
@@ -84,9 +85,9 @@
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
-					\item Implemented in Driverless AI as AutoViz
-					\item OSS: \href{https://ggplot2.tidyverse.org/}{ggplot}, \href{https://seaborn.pydata.org/}{seaborn}, etc.
-					\item Reference: \textit{The Grammar of Graphics}, \cite{wilkinson2006grammar}
+					\item \textbf{Automation} implemented in Driverless AI as AutoViz.
+					\item OSS: \href{http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/aggregator.html}{H2O-3 Aggregator}
+					\item References: \citefield{wilkinson2018visualizing}{title}; \citefield{wilkinson2006grammar}{title}
 				\end{itemize}
 				
 			\end{columns}
@@ -96,144 +97,192 @@
 %-------------------------------------------------------------------------------
 	\section{Training}
 %-------------------------------------------------------------------------------
-	
-		\begin{frame}
-		
-			\frametitle{Manual, Straightforward, or Sparse Feature Engineering}		
-		
-			\begin{columns}
-	
-				\column{0.5\linewidth}
-				\centering
-				\includegraphics[height=100pt]{img/fe.png}
-				
-				\column{0.5\linewidth}
-				\vspace{-5pt}
-				\begin{itemize}
-					\item Implemented in Driverless AI as high-interpretability transformers: frequency, interactions, (monotonic) weight-of-evidence, lags, basics and some Easter eggs in H2O-3
-					\item Decades of custom coding in Hadoop, Python, R, SAS, Spark, SQL, etc.
-					\item \href{https://github.com/szilard/benchm-databases}{Open benchmark of common tools}
-				\end{itemize}
-				
-			\end{columns}		
-		
-		\end{frame}
-	
-		\begin{frame}
-		
-			\frametitle{Fairness Reweighing}		
-			
-			\begin{columns}
-	
-				\column{0.5\linewidth}
-				\centering
-				\includegraphics[height=100pt]{img/fr.png}
-				
-				\column{0.5\linewidth}
-				\vspace{-5pt}
-				\begin{itemize}
-					\item Newer techniques for reweighing data prior to training to remove disparate impact analysis.
-					\item OSS: IBM \href{https://github.com/IBM/AIF360}{AI360}
-					\item References: \cite{calders2010three}, \cite{kamiran2012data},\cite{feldman2015certifying}, \cite{calmon2017optimized}
-					\item \textcolor{magenta}{Roamap items for MLI-2}
-				\end{itemize}
-				
-			\end{columns}			
-			
-		\end{frame}
 
-		\begin{frame}
+%-------------------------------------------------------------------------------
+		\subsection{Feature Engineering}
+%-------------------------------------------------------------------------------
+
+			\begin{frame}
 		
-			\frametitle{Constrained, Fair, Interpretable or Simple Models}		
-			
-			\begin{columns}
+				\frametitle{Manual, Straightforward, or Sparse Feature Engineering}		
+		
+				\begin{columns}
 	
-				\column{0.5\linewidth}
-				\centering
-				\includegraphics[height=100pt]{img/im.png}
+					\column{0.5\linewidth}
+					\centering
+					\includegraphics[height=100pt]{img/fe.png}
 				
-				\column{0.5\linewidth}
-				\vspace{-5pt}
-				\begin{itemize}
-					\item For best transparency use constrained, simple, or directly interpretable models from the beginning
-					\item Implemented in Driverless AI as GLM, RuleFit, Monotonic GBM, in H2O-3 as GLM, monotonic GBM
-					\item \textcolor{magenta}{Decision tree, scalable Bayesian rulelist, XNN are roadmap items for MLI-2}
-				\end{itemize}
+					\column{0.5\linewidth}
+					\vspace{-5pt}
+					\begin{itemize}
+						\item \textbf{Automation} implemented in Driverless AI as high-interpretability transformers.
+						\item OSS: \href{https://github.com/pandas-profiling/pandas-profiling}{Pandas Profiler}, \href{https://index.pocketcluster.io/featuretools-featuretools.html}{Feature Tools}
+						\item References: \citefield{kanter2015deep}{title}; \citefield{kanter2016label}{title}
+					\end{itemize}
 				
-			\end{columns}			
+				\end{columns}		
+		
+			\end{frame}
+	
+%-------------------------------------------------------------------------------
+		\subsection{Fairness Reweighing}
+%-------------------------------------------------------------------------------	
+	
+			\begin{frame}
+		
+				\frametitle{Fairness Reweighing}		
 			
-		\end{frame}
+				\begin{columns}
+	
+					\column{0.5\linewidth}
+					\centering
+					\includegraphics[height=100pt]{img/fr.png}
+				
+					\column{0.5\linewidth}
+					\vspace{-5pt}
+					\begin{itemize}
+						\item OSS: IBM \href{https://github.com/IBM/AIF360}{AI360}
+						\item References: \citefield{calders2010three}{title}; \citefield{kamiran2012data}{title}; \citefield{feldman2015certifying}{title}; \citefield{calmon2017optimized}{title}
+						\item \textbf{Roadmap items for MLI-2}.
+					\end{itemize}
+				
+				\end{columns}			
+			
+			\end{frame}
+			
+%-------------------------------------------------------------------------------
+		\subsection{Interpretable Models}
+%-------------------------------------------------------------------------------			
+			
+			\begin{frame}
+		
+				\frametitle{Constrained, Fair, Interpretable or Simple Models}		
+			
+				\begin{columns}
+	
+					\column{0.5\linewidth}
+					\centering
+					\includegraphics[height=100pt]{img/im.png}
+				
+					\column{0.5\linewidth}
+					\vspace{-5pt}
+					\begin{itemize}
+						\item \textbf{Automation} implemented in Driverless AI as GLM, RuleFit, Monotonic GBM.
+						\item References: \citefield{lime-sup}{title}; \citefield{wf_xnn}{title} (XNN); \citefield{sbrl}{title}	 (SBRL)		
+						\item \textbf{LIME-SUP, SBRL, XNN are roadmap items for MLI-2}.
+					\end{itemize}
+				
+				\end{columns}			
+			
+			\end{frame}
 
 %-------------------------------------------------------------------------------
 	\section{Post-Hoc Analysis}
 %-------------------------------------------------------------------------------
 
-		\begin{frame}
-		
-			\frametitle{Traditional Model Assessment and Diagnostics}		
-			
-			\begin{columns}			
-			
-				\column{0.5\linewidth}
-				\centering
-				\includegraphics[height=100pt]{img/ma.png}
-				
-				\column{0.5\linewidth}
-				\vspace{-5pt}
-				\begin{itemize}
-					\item Confirms model is accurate and meets assumption criteria
-					\item Implemented as model diagnostics in Driverless AI
-					\item Residual analysis is roadmap item for model diagnostics in Driverless AI
-				\end{itemize}
-				
-			\end{columns}
-		
-		\end{frame}
+%-------------------------------------------------------------------------------
+		\subsection{Model Assessment}
+%-------------------------------------------------------------------------------			
 
-		\begin{frame}
+			\begin{frame}
 		
-			\frametitle{Model Debugging}		
+				\frametitle{Traditional Model Assessment and Diagnostics}		
 			
-			\begin{columns}
+				\begin{columns}			
+			
+					\column{0.5\linewidth}
+					\centering
+					\includegraphics[height=100pt]{img/ma.png}
+				
+					\column{0.5\linewidth}
+					\vspace{-5pt}
+					\begin{itemize}
+						\item Residual analysis, Q-Q plots, AUC and lift curves confirm model is accurate and meets assumption criteria.
+						\item Implemented as model diagnostics in Driverless AI.
+						\item \textbf{Residual analysis is roadmap item for model diagnostics in Driverless AI}.
+					\end{itemize}
+				
+				\end{columns}
+		
+			\end{frame}
+
+%-------------------------------------------------------------------------------
+		\subsection{Model Debugging}
+%-------------------------------------------------------------------------------	
+
+			\begin{frame}
+		
+				\frametitle{Model Debugging}		
+			
+				\begin{columns}
 	
-				\column{0.5\linewidth}
-				\centering
-				\includegraphics[height=100pt]{img/md.png}
+					\column{0.5\linewidth}
+					\centering
+					\includegraphics[height=100pt]{img/md.png}
 				
-				\column{0.5\linewidth}
-				\vspace{-5pt}
-				\begin{itemize}
-					\item Newer techniques concerned with understanding and eliminating errors in model predictions; also model testing: "what-if" analysis, random attacks; focus on enhancing \textit{trust}
-					\item \textcolor{magenta}{"what-if" analysis, explanation of residuals, measures of epistemic uncertainty are roadmap items for MLI-2}
-				\end{itemize}
+					\column{0.5\linewidth}
+					\vspace{-5pt}
+					\begin{itemize}
+						\item Understanding and eliminating errors in model predictions by model testing: adversarial examples, "what-if" analysis, random attacks, explanation of residuals.
+						\item OSS: \href{https://github.com/tensorflow/cleverhans}{cleverhans}, \href{https://github.com/SauceCat/PDPbox}{pdpbox}, \href{https://pair-code.github.io/what-if-tool/index.html}{what-if tool}
+						\item \textbf{Adversarial examples, "what-if" analysis, explanation of residuals, measures of epistemic uncertainty are implemented and roadmap items in MLI-2.}
+					
+					\end{itemize}
 				
-			\end{columns}			
-		
-		\end{frame}
-
-		\begin{frame}
-		
-			\frametitle{Post-hoc Explanations}		
+				\end{columns}			
 			
-			\begin{columns}
-	
-				\column{0.5\linewidth}
-				\centering
-				\includegraphics[height=100pt]{img/exp.png}
-				
-				\column{0.5\linewidth}
-				\vspace{-5pt}
-				\begin{itemize}
-					\item Explanations enhance \textit{understanding}
-					\item Global feature importance, surrogate decision tree, LIME, LOCO, treeinterpreter and Shapley local feature importance, partial dependence and ICE implemented in current MLI, Friedman's H-statistic implemented in MLI-2
-					\item Shapley is roadmap item for H2O-3; \textcolor{magenta}{Basic term weights, ALE plots, decision boundary plots are roadmap items for MLI-2}
-				\end{itemize}
-				
-			\end{columns}
+			\end{frame}
+			
+%-------------------------------------------------------------------------------
+		\subsection{Post-hoc Explanations}
+%-------------------------------------------------------------------------------			
+			
+			\begin{frame}
 		
-		\end{frame}
+				\frametitle{Post-hoc Explanations}		
+			
+				\begin{columns}
+	
+					\column{0.5\linewidth}
+					\centering
+					\includegraphics[height=100pt]{img/exp.png}
+				
+					\column{0.5\linewidth}
+					\vspace{-5pt}
+					\begin{itemize}
+						\item LIME and Tree SHAP implemented Driverless AI.
+						\item OSS: \href{https://github.com/marcotcr/lime}{lime}, \href{https://github.com/slundberg/shap}{shap} 
+						\item References: \citefield{lime}{title}; \citefield{shapley}{title}; \citefield{please_stop}{title} (criticism)
+						\item Tree SHAP is roadmap item for H2O-3; \textbf{Explanations for unstructured data are roadmap for MLI-2}.
+					\end{itemize}
+				
+				\end{columns}
+		
+			\end{frame}
 
-		\begin{frame}
+			\begin{frame}
+		
+				\frametitle{Interlude: The Time--Tested Shapley Value}		
+			
+				\begin{enumerate}
+				
+					\item \textbf{In the beginning}: \citefield{shapley1953value}{title}, \citefield{shapley1953value}{year}
+					\item \textbf{Nobel-worthy contributions}: \citefield{shapley1988shapley}{title}, \citefield{shapley1988shapley}{year}
+					\item \textbf{Shapley regression}: \citefield{lipovetsky2001analysis}{title}, \citefield{lipovetsky2001analysis}{year}
+					\item \textbf{First reference in ML?} \citefield{keinan2004fair}{title}, \citefield{keinan2004fair}{year} 	
+					\item \textbf{Into the ML research mainstream, i.e. JMLR}: \citefield{kononenko2010efficient}{title}, \citefield{kononenko2010efficient}{year}
+					\item \textbf{Into the real-world data mining workflow ... \textit{finally}}: \citefield{tree_shap}{title}, \citefield{tree_shap}{year}	
+					\item \textbf{Unification}: \citefield{shapley}{title}, \citefield{shapley}{year}	
+				
+				\end{enumerate}
+			
+			\end{frame}
+			
+%-------------------------------------------------------------------------------
+		\subsection{Post-hoc Disparate Impact Remediation}
+%-------------------------------------------------------------------------------					
+		
+			\begin{frame}		
 		
 			\frametitle{Post-hoc Disparate Impact Assessment and Remediation}		
 			
@@ -246,14 +295,17 @@
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
-					\item Disparate Impact Analysis available through code APIs in Driverless AI and H2O-3
-					\item Newer techniques can remove certain types of disparate impact 
-					\item \textcolor{magenta}{Disparate impact remediation is a roadmap item for MLI-2}
+					\item Disparate impact analysis can be performed manually using Driverless AI or H2O-3.
+					\item OSS: \href{https://github.com/dssg/aequitas}{aequitas}, IBM \href{https://github.com/IBM/AIF360}{AI360}, \href{https://github.com/LASER-UMASS/Themis}{themis}
+					\item References: \citefield{hardt2016equality}{title}; \citefield{feldman2015certifying}{title} 
+					\item \textbf{Disparate impact analysis and remediation are roadmap items for MLI-2.}
 				\end{itemize}
 				
 			\end{columns}
 		
 		\end{frame}
+
+
 
 %-------------------------------------------------------------------------------
 	\section{Human Review}
@@ -272,8 +324,8 @@
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
-					\item Implemented as AutoDoc in\\ Driverless AI 
-					\item Results from various roadmap items to be added to AutoDoc as appropriate
+					\item Implemented as AutoDoc in\\ Driverless AI.
+					\item \textbf{Various interpretability and fairness roadmap items to be added to AutoDoc}.
 				\end{itemize}
 				
 			\end{columns}
@@ -290,15 +342,17 @@
 			
 			\begin{columns}
 	
-				\column{0.4\linewidth}
+				\column{0.5\linewidth}
 				\centering
 				\includegraphics[height=100pt]{img/deploy.png}
 				
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
-					\item Monitor models for accuracy and fairness in real-time
-					\item Broader roadmap item for H2O as a company
+					\item Monitor models for accuracy and fairness in real-time, track model and data lineage.
+					\item OSS: \href{https://github.com/mlflow/mlflow}{mlflow}, \href{https://github.com/mitdbg/modeldb}{modeldb}
+					\item Reference: \citefield{vartak2016m}{title}
+					\item \textbf{Broader roadmap item for H2O.ai}.
 				\end{itemize}
 				
 			\end{columns}
@@ -320,7 +374,8 @@
 			\end{figure}	
 
 			\centering
-Very important, but probably requires custom implementation for each deployment
+			\vspace{-10pt}
+			\textit{Very} important, may require custom implementation for each deployment environment?
 
 		\end{frame}
 
@@ -340,7 +395,8 @@ Very important, but probably requires custom implementation for each deployment
 			\end{figure}	
 
 			\centering
-			Improvements, KPIs should not be restricted to accuracy alone
+			
+			Improvements, KPIs should not be restricted to accuracy alone.
 		
 		\end{frame}
 
@@ -350,10 +406,11 @@ Very important, but probably requires custom implementation for each deployment
 
 		\begin{frame}
 
-			\frametitle{Open Questions}		
+			\frametitle{Open Conceptual Questions}		
 
 			\begin{itemize}
-				\item What is the role for automation?
+				\item How much automation is appropriate, 100\%?
+				\item How to automate learning by iteration, reinforcement learning?
 				\item How to implement human appeals, is it productizable?
 			\end{itemize}
 			
@@ -363,10 +420,28 @@ Very important, but probably requires custom implementation for each deployment
 %	References
 %-------------------------------------------------------------------------------
 
-
 	\begin{frame}[t, allowframebreaks]
 	
 		\frametitle{References}
+		
+			\vspace{10pt}		
+		
+			\textbf{Driverless AI API Interpretability Technique Examples:}\\
+			\small{\url{https://github.com/h2oai/driverlessai-tutorials}}
+			
+			\vspace{10pt}		
+		
+		
+			\textbf{In-Depth Open Source Interpretability Technique Examples:}\\
+			\small{\url{https://github.com/jphall663/interpretable_machine_learning_with_python}}
+			
+			\vspace{10pt}
+			
+			\textbf{"Awesome" Machine Learning Interpretability Resource List:}\\
+			\small{\url{https://github.com/jphall663/awesome-machine-learning-interpretability}}
+			
+		
+		\framebreak		
 		
 		\printbibliography
 		
