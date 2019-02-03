@@ -54,10 +54,18 @@
 	\section{Blueprint}
 %-------------------------------------------------------------------------------
 	
-		\begin{frame}
+		\begin{frame}[allowframebreaks]
 		
-			\frametitle{Blueprint}
-				
+			\frametitle{Blueprint}			
+			
+			This mid-level technical document provides a basic blueprint for combining the best of AutoML, regulation-compliant predictive modeling, and machine learning research in the sub-disciplines of interpretable models, fairness, and post-hoc explanations to create a low-risk, human-centered machine learning framework.\\
+			
+			\vspace{10pt}			
+			
+			Look for \textit{compliance} mode in Driverless AI soon.
+							
+			\framebreak								
+							
 			\begin{figure}[htb]
 				\begin{center}
 					\includegraphics[height=140pt]{img/blueprint.png}
@@ -85,6 +93,7 @@
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
+					\item Know thy data.
 					\item \textbf{Automation} implemented in Driverless AI as AutoViz.
 					\item OSS: \href{http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/aggregator.html}{H2O-3 Aggregator}
 					\item References: \citefield{wilkinson2018visualizing}{title}; \citefield{wilkinson2006grammar}{title}
@@ -250,7 +259,7 @@
 					\column{0.5\linewidth}
 					\vspace{-5pt}
 					\begin{itemize}
-						\item LIME and Tree SHAP implemented Driverless AI.
+						\item LIME and Tree SHAP implemented in Driverless AI.
 						\item OSS: \href{https://github.com/marcotcr/lime}{lime}, \href{https://github.com/slundberg/shap}{shap} 
 						\item References: \citefield{lime}{title}; \citefield{shapley}{title}; \citefield{please_stop}{title} (criticism)
 						\item Tree SHAP is roadmap item for H2O-3; \textbf{Explanations for unstructured data are roadmap for MLI-2}.
@@ -364,7 +373,7 @@
 %-------------------------------------------------------------------------------
 
 		\begin{frame}	
-			\frametitle{Iterate: Use Gained Knowledge to Improve Accuracy, Fairness, or Interpretability}		
+			\frametitle{Human Appeal}		
 			
 			\begin{figure}[htb]
 				\begin{center}
@@ -424,8 +433,13 @@
 	
 		\frametitle{References}
 		
-			\vspace{10pt}		
-		
+			\vspace{10pt}	
+			
+			\textbf{This presentation}:\\
+			\small{\url{https://github.com/jphall663/h2oworld_sf_2019/blob/master/main.pdf}}
+					
+			\vspace{10pt}	
+					
 			\textbf{Driverless AI API Interpretability Technique Examples:}\\
 			\small{\url{https://github.com/h2oai/driverlessai-tutorials}}
 			
