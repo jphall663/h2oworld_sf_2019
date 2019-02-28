@@ -14,8 +14,8 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    urlcolor=magenta,
-    linkcolor=violet}
+    urlcolor=[rgb]{1,0,1},
+    linkcolor=[rgb]{1,0,1}}
 
 \usepackage[natbib=true,style=authoryear,backend=bibtex,useprefix=true]{biblatex}
 
@@ -58,7 +58,7 @@
 		
 			\frametitle{Blueprint}			
 			
-			This mid-level technical document provides a basic blueprint for combining the best of AutoML, regulation-compliant predictive modeling, and machine learning research in the sub-disciplines of interpretable models, fairness, and post-hoc explanations to create a low-risk, human-centered machine learning framework.\\
+			This mid-level technical document provides a basic blueprint for combining the best of AutoML, regulation-compliant predictive modeling, and machine learning research in the sub-disciplines of fairness, interpretable models, post-hoc explanations and privacy to create a low-risk, human-centered machine learning framework.\\
 			
 			\vspace{10pt}			
 			
@@ -72,13 +72,30 @@
 							
 			\begin{figure}[htb]
 				\begin{center}
-					\includegraphics[height=120pt]{img/blueprint.png}
+					\includegraphics[height=150pt]{img/blueprint.png}
 					\label{fig:blueprint}
 				\end{center}
 			\end{figure}		
 		
 		\end{frame}
 
+
+%-------------------------------------------------------------------------------
+%	\section{Roadmap}
+%-------------------------------------------------------------------------------
+	
+%		\begin{frame}
+		
+%			\frametitle{Internal Roadmap}		
+			
+%			\begin{figure}[htb]
+%				\begin{center}
+%					\includegraphics[height=150pt]{img/roadmap.png}
+%					\label{fig:blueprint}
+%				\end{center}
+%			\end{figure}
+		
+%		\end{frame}
 
 %-------------------------------------------------------------------------------
 	\section{EDA}
@@ -92,7 +109,7 @@
 	
 				\column{0.5\linewidth}
 				\centering
-				\includegraphics[height=100pt]{img/eda.png}
+				\includegraphics[height=120pt]{img/eda.png}
 				
 				\column{0.5\linewidth}
 				\vspace{-5pt}
@@ -117,14 +134,14 @@
 
 			\begin{figure}[htb]
 				\begin{center}
-					\includegraphics[height=120pt]{img/bench.png}
+					\includegraphics[height=135pt]{img/bench.png}
 					\label{fig:blueprint}
 				\end{center}
 			\end{figure}	
 
 			\centering
-			\vspace{-10pt}
-			Establishing a benchmark from which to gauge improvements in accuracy, fairness, or interpretability is crucial for good ("data") science and compliance. 
+			%\vspace{-10pt}
+			Establishing a benchmark from which to gauge improvements in accuracy, fairness, interpretability or privacy is crucial for good (``data'') science and for compliance. 
 		
 		\end{frame}
 
@@ -139,13 +156,13 @@
 
 			\begin{frame}
 		
-				\frametitle{Manual, Straightforward, or Sparse Feature Engineering}		
+				\frametitle{Manual, Private, Sparse or Straightforward Feature Engineering }		
 		
 				\begin{columns}
 	
 					\column{0.5\linewidth}
 					\centering
-					\includegraphics[height=100pt]{img/fe.png}
+					\includegraphics[height=120pt]{img/fe.png}
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
@@ -160,24 +177,24 @@
 			\end{frame}
 	
 %-------------------------------------------------------------------------------
-		\subsection{Fairness Reweighing}
+		\subsection{Preprocessing}
 %-------------------------------------------------------------------------------	
 	
 			\begin{frame}
 		
-				\frametitle{Fairness Reweighing}		
+				\frametitle{Preprocessing for Fairness, Privacy or Security}		
 			
 				\begin{columns}
 	
 					\column{0.5\linewidth}
 					\centering
-					\includegraphics[height=100pt]{img/fr.png}
+					\includegraphics[height=120pt]{img/pre.png}
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
 					\begin{itemize}
 						\item OSS: IBM \href{https://github.com/IBM/AIF360}{AI360}
-						\item References: \citefield{calders2010three}{title}; \citefield{kamiran2012data}{title}; \citefield{feldman2015certifying}{title}; \citefield{calmon2017optimized}{title}
+						\item References: \citefield{kamiran2012data}{title}; \citefield{feldman2015certifying}{title}; \citefield{calmon2017optimized}{title}; \citefield{agrawal2000privacy}{title}
 						\item \textbf{Roadmap items for MLI-2}.
 					\end{itemize}
 				
@@ -191,13 +208,13 @@
 			
 			\begin{frame}
 		
-				\frametitle{Constrained, Fair, Interpretable or Simple Models}		
+				\frametitle{Constrained, Fair, Interpretable, Private or Simple Models}		
 			
 				\begin{columns}
 	
 					\column{0.5\linewidth}
 					\centering
-					\includegraphics[height=100pt]{img/im.png}
+					\includegraphics[height=120pt]{img/im.png}
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
@@ -227,47 +244,19 @@
 			
 					\column{0.5\linewidth}
 					\centering
-					\includegraphics[height=100pt]{img/ma.png}
+					\includegraphics[height=120pt]{img/ma.png}
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
 					\begin{itemize}
 						\item Residual analysis, Q-Q plots, AUC and lift curves confirm model is accurate and meets assumption criteria.
 						\item Implemented as model diagnostics in Driverless AI.
-						\item \textbf{Residual analysis is roadmap item for model diagnostics in Driverless AI}.
 					\end{itemize}
 				
 				\end{columns}
 		
 			\end{frame}
 
-%-------------------------------------------------------------------------------
-		\subsection{Model Debugging}
-%-------------------------------------------------------------------------------	
-
-			\begin{frame}
-		
-				\frametitle{Model Debugging}		
-			
-				\begin{columns}
-	
-					\column{0.5\linewidth}
-					\centering
-					\includegraphics[height=100pt]{img/md.png}
-				
-					\column{0.5\linewidth}
-					\vspace{-5pt}
-					\begin{itemize}
-						\item Understanding and eliminating errors in model predictions by model testing: adversarial examples, "what-if" analysis, random attacks, explanation of residuals.
-						\item OSS: \href{https://github.com/tensorflow/cleverhans}{cleverhans}, \href{https://github.com/SauceCat/PDPbox}{pdpbox}, \href{https://pair-code.github.io/what-if-tool/index.html}{what-if tool}
-						\item \textbf{Adversarial examples, "what-if" analysis, explanation of residuals, measures of epistemic uncertainty are implemented and roadmap items in MLI-2.}
-					
-					\end{itemize}
-				
-				\end{columns}			
-			
-			\end{frame}
-			
 %-------------------------------------------------------------------------------
 		\subsection{Post-hoc Explanations}
 %-------------------------------------------------------------------------------			
@@ -280,15 +269,15 @@
 	
 					\column{0.5\linewidth}
 					\centering
-					\includegraphics[height=100pt]{img/exp.png}
+					\includegraphics[height=120pt]{img/exp.png}
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
 					\begin{itemize}
-						\item LIME and Tree SHAP implemented in Driverless AI.
+						\item LIME, Tree SHAP implemented in Driverless AI.
 						\item OSS: \href{https://github.com/marcotcr/lime}{lime}, \href{https://github.com/slundberg/shap}{shap} 
 						\item References: \citefield{lime}{title}; \citefield{shapley}{title}; \citefield{please_stop}{title} (criticism)
-						\item Tree SHAP is roadmap item for H2O-3; \textbf{Explanations for unstructured data are roadmap for MLI-2}.
+						\item Tree SHAP is roadmap for H2O-3; \textbf{Explanations for unstructured data are roadmap for MLI-2}.
 					\end{itemize}
 				
 				\end{columns}
@@ -312,6 +301,35 @@
 				\end{enumerate}
 			
 			\end{frame}
+
+%-------------------------------------------------------------------------------
+		\subsection{Model Debugging}
+%-------------------------------------------------------------------------------	
+
+			\begin{frame}
+		
+				\frametitle{Model Debugging for Accuracy, Privacy or Security}		
+			
+				\begin{columns}
+	
+					\column{0.5\linewidth}
+					\centering
+					\includegraphics[height=120pt]{img/md.png}
+				
+					\column{0.5\linewidth}
+					\vspace{-5pt}
+					\begin{itemize}
+						\item Eliminating errors in model predictions by testing: adversarial examples, explanation of residuals, random attacks and ``what-if'' analysis.
+						\item OSS: \href{https://github.com/tensorflow/cleverhans}{cleverhans}, \href{https://github.com/SauceCat/PDPbox}{pdpbox}, \href{https://pair-code.github.io/what-if-tool/index.html}{what-if tool}
+						\item Reference: \citefield{amershi2015modeltracker}{title}
+						\item \textbf{Adversarial examples, explanation of residuals, measures of epistemic uncertainty, ``what-if'' analysis are roadmap items in MLI-2.}
+					
+					\end{itemize}
+				
+				\end{columns}			
+			
+			\end{frame}
+			
 			
 %-------------------------------------------------------------------------------
 		\subsection{Post-hoc Disparate Impact Remediation}
@@ -325,7 +343,7 @@
 	
 				\column{0.5\linewidth}
 				\centering
-				\includegraphics[height=100pt]{img/fair.png}
+				\includegraphics[height=120pt]{img/fair.png}
 				
 				\column{0.5\linewidth}
 				\vspace{-5pt}
@@ -343,7 +361,7 @@
 
 
 %-------------------------------------------------------------------------------
-	\section{Human Review}
+	\section{Review}
 %-------------------------------------------------------------------------------
 
 		\begin{frame}
@@ -354,13 +372,13 @@
 	
 				\column{0.5\linewidth}
 				\centering
-				\includegraphics[height=100pt]{img/hr.png}
+				\includegraphics[height=120pt]{img/hr.png}
 				
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
-					\item Implemented as AutoDoc in\\ Driverless AI.
-					\item \textbf{Various interpretability and fairness roadmap items to be added to AutoDoc}.
+					\item \textbf{Automation} implemented as AutoDoc in Driverless AI.
+					\item \textbf{Various fairness, interpretability and model debugging roadmap items to be added to AutoDoc}.
 				\end{itemize}
 				
 			\end{columns}
@@ -373,18 +391,18 @@
 
 		\begin{frame}
 
-			\frametitle{Deployment, Management, and Monitoring}		
+			\frametitle{Deployment, Management and Monitoring}		
 			
 			\begin{columns}
 	
 				\column{0.5\linewidth}
 				\centering
-				\includegraphics[height=100pt]{img/deploy.png}
+				\includegraphics[height=120pt]{img/deploy.png}
 				
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
-					\item Monitor models for accuracy and fairness in real-time, track model and data lineage.
+					\item Monitor models for accuracy, fairness, or privacy in real-time, track model and data lineage.
 					\item OSS: \href{https://github.com/mlflow/mlflow}{mlflow}, \href{https://github.com/mitdbg/modeldb}{modeldb}, \href{https://github.com/EthicalML/awesome-machine-learning-operations}{awesome-machine-learning-ops metalist}
 					\item Reference: \citefield{vartak2016m}{title}
 					\item \textbf{Broader roadmap item for H2O.ai}.
@@ -395,7 +413,7 @@
 		\end{frame}
 
 %-------------------------------------------------------------------------------
-	\section{Human Appeal}
+	\section{Appeal}
 %-------------------------------------------------------------------------------
 
 		\begin{frame}	
@@ -403,13 +421,13 @@
 			
 			\begin{figure}[htb]
 				\begin{center}
-					\includegraphics[height=120pt]{img/ha.png}
+					\includegraphics[height=135pt]{img/ha.png}
 					\label{fig:blueprint}
 				\end{center}
 			\end{figure}	
 
 			\centering
-			\vspace{-10pt}
+			%\vspace{-10pt}
 			\textit{Very} important, may require custom implementation for each deployment environment?
 
 		\end{frame}
@@ -420,11 +438,11 @@
 
 		\begin{frame}	
 
-			\frametitle{Iterate: Use Gained Knowledge to Improve Accuracy, Fairness, or Interpretability}		
+			\frametitle{Iterate: Use Gained Knowledge to Improve Accuracy, Fairness, Interpretability or Privacy}		
 			
 			\begin{figure}[htb]
 				\begin{center}
-					\includegraphics[height=120pt]{img/iter.png}
+					\includegraphics[height=135pt]{img/iter.png}
 					\label{fig:blueprint}
 				\end{center}
 			\end{figure}	
@@ -436,7 +454,7 @@
 		\end{frame}
 
 %-------------------------------------------------------------------------------
-	\section{Open Questions}
+	\section{Questions}
 %------------------------------------------------------------------------------
 
 		\begin{frame}
