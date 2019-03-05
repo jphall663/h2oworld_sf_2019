@@ -30,6 +30,8 @@
 \renewcommand*{\bibfont}{\scriptsize}
 \addbibresource{bibliography.bib}
 
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
 \author{H2O.ai Machine Learning Interpretability Team}
 \title{Beyond Reason Codes}
 \subtitle{A Blueprint for Human-Centered, Low-Risk AutoML}
@@ -54,21 +56,25 @@
 	\section{Blueprint}
 %-------------------------------------------------------------------------------
 	
-		\begin{frame}[allowframebreaks]
+		\begin{frame}
 		
 			\frametitle{Blueprint}			
 			
-			This mid-level technical document provides a basic blueprint for combining the best of AutoML, regulation-compliant predictive modeling, and machine learning research in the sub-disciplines of fairness, interpretable models, post-hoc explanations and privacy to create a low-risk, human-centered machine learning framework.\\
+			This mid-level technical document provides a basic blueprint for combining the best of AutoML, regulation-compliant predictive modeling, and machine learning research in the sub-disciplines of fairness, interpretable models, post-hoc explanations, privacy and security to create a low-risk, human-centered machine learning framework.\\
 			
 			\vspace{10pt}			
 			
-			Look for \textit{compliance} mode in Driverless AI soon.
+			Look for \textit{compliance} mode in Driverless AI soon.\footnote{\tiny{This presentation or associated materials are not legal compliance advice.}}
 			
 			\vspace{10pt}			
 			
 			Guidance from leading researchers and practitioners.
-							
-			\framebreak								
+					
+		\end{frame}					
+		
+		\begin{frame}				
+		
+			\frametitle{Blueprint\footnote{\tiny{This blueprint does not address ETL workflows.}}}
 							
 			\begin{figure}[htb]
 				\begin{center}
@@ -77,25 +83,27 @@
 				\end{center}
 			\end{figure}		
 		
+			\centering \
+		
 		\end{frame}
 
 
 %-------------------------------------------------------------------------------
-%	\section{Roadmap}
+	\section{Roadmap}
 %-------------------------------------------------------------------------------
 	
-%		\begin{frame}
+		\begin{frame}
 		
-%			\frametitle{Internal Roadmap}		
+			\frametitle{Internal Roadmap}		
 			
-%			\begin{figure}[htb]
-%				\begin{center}
-%					\includegraphics[height=150pt]{img/roadmap.png}
-%					\label{fig:blueprint}
-%				\end{center}
-%			\end{figure}
+		\begin{figure}[htb]
+				\begin{center}
+					\includegraphics[height=150pt]{img/roadmap.png}
+					\label{fig:blueprint}
+				\end{center}
+			\end{figure}
 		
-%		\end{frame}
+		\end{frame}
 
 %-------------------------------------------------------------------------------
 	\section{EDA}
@@ -273,12 +281,14 @@
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
+					
+					\small{
 					\begin{itemize}
 						\item LIME, Tree SHAP implemented in Driverless AI.
 						\item OSS: \href{https://github.com/marcotcr/lime}{lime}, \href{https://github.com/slundberg/shap}{shap} 
 						\item References: \citefield{lime}{title}; \citefield{shapley}{title}; \citefield{please_stop}{title} (criticism)
 						\item Tree SHAP is roadmap for H2O-3; \textbf{Explanations for unstructured data are roadmap for MLI-2}.
-					\end{itemize}
+					\end{itemize}}
 				
 				\end{columns}
 		
@@ -318,13 +328,13 @@
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
-					\begin{itemize}
+					\footnotesize{\begin{itemize}
 						\item Eliminating errors in model predictions by testing: adversarial examples, explanation of residuals, random attacks and ``what-if'' analysis.
 						\item OSS: \href{https://github.com/tensorflow/cleverhans}{cleverhans}, \href{https://github.com/SauceCat/PDPbox}{pdpbox}, \href{https://pair-code.github.io/what-if-tool/index.html}{what-if tool}
-						\item Reference: \citefield{amershi2015modeltracker}{title}
+						\item References: \citefield{amershi2015modeltracker}{title}; \citefield{papernot2018marauder}{title}
 						\item \textbf{Adversarial examples, explanation of residuals, measures of epistemic uncertainty, ``what-if'' analysis are roadmap items in MLI-2.}
 					
-					\end{itemize}
+					\end{itemize}}
 				
 				\end{columns}			
 			
@@ -379,6 +389,7 @@
 				\begin{itemize}
 					\item \textbf{Automation} implemented as AutoDoc in Driverless AI.
 					\item \textbf{Various fairness, interpretability and model debugging roadmap items to be added to AutoDoc}.
+					\item Documentation of considered alternative approaches typically necessary for compliance.
 				\end{itemize}
 				
 			\end{columns}
@@ -402,7 +413,7 @@
 				\column{0.5\linewidth}
 				\vspace{-5pt}
 				\begin{itemize}
-					\item Monitor models for accuracy, fairness, or privacy in real-time, track model and data lineage.
+					\item Monitor models for accuracy, disparate impact, privacy violations or security vulnerabilities in real-time; track model and data lineage.
 					\item OSS: \href{https://github.com/mlflow/mlflow}{mlflow}, \href{https://github.com/mitdbg/modeldb}{modeldb}, \href{https://github.com/EthicalML/awesome-machine-learning-operations}{awesome-machine-learning-ops metalist}
 					\item Reference: \citefield{vartak2016m}{title}
 					\item \textbf{Broader roadmap item for H2O.ai}.
@@ -438,7 +449,7 @@
 
 		\begin{frame}	
 
-			\frametitle{Iterate: Use Gained Knowledge to Improve Accuracy, Fairness, Interpretability or Privacy}		
+			\frametitle{Iterate: Use Gained Knowledge to Improve Accuracy, Fairness, Interpretability, Privacy or Security}		
 			
 			\begin{figure}[htb]
 				\begin{center}
