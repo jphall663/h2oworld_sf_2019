@@ -226,11 +226,13 @@
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
+					\small
 					\begin{itemize}
 						\item \textbf{Automation} implemented in Driverless AI as GLM, RuleFit, Monotonic GBM.
-						\item References: \citefield{lime-sup}{title}; \citefield{wf_xnn}{title} (XNN); \citefield{sbrl}{title}	 (SBRL)		
-						\item \textbf{LIME-SUP, SBRL, XNN are roadmap items for MLI-2}.
+						\item References: \citefield{lime-sup}{title}; \citefield{wf_xnn}{title} (XNN); \citefield{pate}{title}; \citefield{sbrl}{title} (SBRL); \citefield{lfr}{title} (LFR)	
+						\item \textbf{LIME-SUP, SBRL, XNN are roadmap items for MLI-2}. 
 					\end{itemize}
+					\normalsize
 				
 				\end{columns}			
 			
@@ -328,19 +330,19 @@
 				
 					\column{0.5\linewidth}
 					\vspace{-5pt}
-					\footnotesize{\begin{itemize}
+					\scriptsize
+					{\begin{itemize}
 						\item Eliminating errors in model predictions by testing: adversarial examples, explanation of residuals, random attacks and ``what-if'' analysis.
 						\item OSS: \href{https://github.com/tensorflow/cleverhans}{cleverhans}, \href{https://github.com/SauceCat/PDPbox}{pdpbox}, \href{https://pair-code.github.io/what-if-tool/index.html}{what-if tool}
-						\item References: \citefield{amershi2015modeltracker}{title}; \citefield{papernot2018marauder}{title}
+						\item References: \citefield{amershi2015modeltracker}{title}; \citefield{papernot2018marauder}{title}; \citefield{security_of_ml}{title}
 						\item \textbf{Adversarial examples, explanation of residuals, measures of epistemic uncertainty, ``what-if'' analysis are roadmap items in MLI-2.}
-					
 					\end{itemize}}
+					\normalsize
 				
 				\end{columns}			
 			
 			\end{frame}
-			
-			
+				
 %-------------------------------------------------------------------------------
 		\subsection{Post-hoc Disparate Impact Remediation}
 %-------------------------------------------------------------------------------					
@@ -389,6 +391,7 @@
 				\begin{itemize}
 					\item \textbf{Automation} implemented as AutoDoc in Driverless AI.
 					\item \textbf{Various fairness, interpretability and model debugging roadmap items to be added to AutoDoc}.
+					\item Reference: \citefield{model_cards}{title}
 					\item Documentation of considered alternative approaches typically necessary for compliance.
 				\end{itemize}
 				
